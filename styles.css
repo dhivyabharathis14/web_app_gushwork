@@ -1560,3 +1560,53 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* BACKDROP */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* BOX */
+.modal-content {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  width: 400px;
+  max-width: 90%;
+  position: relative;
+}
+
+/* CLOSE */
+.close-btn {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* FORM */
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-form input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.modal-form button {
+  margin-top: 10px;
+}
