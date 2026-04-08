@@ -24,7 +24,7 @@
       </nav>
     </div>
   </header>
-< class="hero-bg">
+<div class="hero-bg">
   <!-- HERO -->
   <section class="hero container">
 
@@ -788,153 +788,10 @@
 </div>
 </div>
 </div>
-
-<script>
-  const quoteModal = document.getElementById("quoteModal");
-  const openQuoteBtn = document.getElementById("openQuoteModal");
-  const closeQuoteBtn = document.getElementById("closeQuoteModal");
-
-  // Open
-  openQuoteBtn.addEventListener("click", () => {
-    quoteModal.style.display = "flex";
-  });
-
-  // Close
-  closeQuoteBtn.addEventListener("click", () => {
-    quoteModal.style.display = "none";
-  });
-
-  // Outside click
-  window.addEventListener("click", (e) => {
-    if (e.target === quoteModal) {
-      quoteModal.style.display = "none";
-    }
-  });
-</script>
-<script>
-  const modal = document.getElementById("downloadModal");
-  const openBtn = document.getElementById("openModal");
-  const closeBtn = document.getElementById("closeModal");
-
-  // Open modal
-  openBtn.addEventListener("click", () => {
-    modal.style.display = "flex";
-  });
-
-  // Close modal
-  closeBtn.addEventListener("click", () => {
-    modal.style.display = "none";
-  });
-
-  // Close on outside click
-  window.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      modal.style.display = "none";
-    }
-  });
-</script>
-<script>
-  const tabs = document.querySelectorAll(".tab");
-
-  const data = {
-    raw: {
-      title: "High-Grade Raw Material Selection",
-      desc: "Ensures high durability and strength using premium PE100 materials.",
-      list: ["PE100 grade material", "Optimal molecular distribution"],
-      img: "./assets/images/fisher.svg"
-    },
-    extrusion: {
-      title: "Precision Extrusion",
-      desc: "Advanced extrusion ensures consistent pipe thickness.",
-      list: ["Uniform wall thickness", "High-speed processing"],
-      img: "./assets/images/fisher.svg"
-    },
-    cooling: {
-      title: "Controlled Cooling",
-      desc: "Cooling systems maintain dimensional stability.",
-      list: ["Water cooling tanks", "Shape retention"],
-      img: "./assets/images/fisher.svg"
-    }
-  };
-
-  tabs.forEach(tab => {
-    tab.addEventListener("click", () => {
-
-      tabs.forEach(t => t.classList.remove("active"));
-      tab.classList.add("active");
-
-      const key = tab.dataset.tab;
-      const item = data[key];
-
-      document.getElementById("processTitle").innerText = item.title;
-      document.getElementById("processDesc").innerText = item.desc;
-      document.getElementById("processImg").src = item.img;
-
-      const list = document.getElementById("processList");
-      list.innerHTML = item.list.map(li => `<li>${li}</li>`).join("");
-    });
-  });
-</script>
-<script>
-  // Sticky header
-  window.addEventListener('scroll', () => {
-    const header = document.getElementById('mainHeader');
-    header.classList.toggle('sticky', window.scrollY > 10);
-  });
-
-  // Thumbnail click to switch main image
-  const thumbs = document.querySelectorAll('.thumb-box');
-  thumbs.forEach((thumb, i) => {
-    thumb.addEventListener('click', () => {
-      thumbs.forEach(t => t.classList.remove('active'));
-      thumb.classList.add('active');
-      // Replace with actual image src array when assets are ready
-      // document.getElementById('currentImage').src = images[i];
-    });
-  });
-
-  // Zoom on hover
-  const mainImg = document.getElementById('currentImage');
-  const zoomPreview = document.getElementById('zoomPreview');
-
-  mainImg.addEventListener('mousemove', (e) => {
-    const rect = mainImg.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
-    zoomPreview.style.display = 'block';
-    zoomPreview.style.backgroundImage = `url(${mainImg.src})`;
-    zoomPreview.style.backgroundSize = '300%';
-    zoomPreview.style.backgroundPosition = `${x}% ${y}%`;
-  });
-
-  mainImg.addEventListener('mouseleave', () => {
-    zoomPreview.style.display = 'none';
-  });
-</script>
-<script>
-  const items = document.querySelectorAll(".faq-item");
-
-  items.forEach(item => {
-    item.querySelector(".faq-question").addEventListener("click", () => {
-
-      // close others
-      items.forEach(i => i.classList.remove("active"));
-
-      // open clicked
-      item.classList.toggle("active");
-    });
-  });
-</script>
-<script>
-  const slider = document.getElementById("slider");
-
-  document.getElementById("nextBtn").onclick = () => {
-    slider.scrollBy({ left: 300, behavior: "smooth" });
-  };
-
-  document.getElementById("prevBtn").onclick = () => {
-    slider.scrollBy({ left: -300, behavior: "smooth" });
-  };
-</script>
+<script src="./js/header.js"></script>
+<script src="./js/modal.js"></script>
+<script src="./js/faq.js"></script>
+<script src="./js/tabs.js"></script>
+<script src="./js/slider.js"></script>
 </body>
 </html>
