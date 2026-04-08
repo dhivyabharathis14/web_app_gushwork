@@ -248,7 +248,7 @@
 
     </div>
 
-    <button class="btn-primary quote-btn">Request a Quote</button>
+    <button id="openQuoteModal" class="btn-primary quote-btn">Request a Quote</button>
 
   </div>
 </section>
@@ -759,9 +759,58 @@
     </div>
 
   </div>
+
+</div>
+  <div id="quoteModal" class="modal">
+  <div class="modal-content">
+
+    <!-- CLOSE -->
+    <span class="close-btn" id="closeQuoteModal">&times;</span>
+
+    <h3>Request a call back</h3>
+
+    <div class="modal-form">
+      <input type="text" placeholder="Full Name">
+      <input type="text" placeholder="Company Name">
+      <input type="email" placeholder="Email Address">
+
+      <div class="phone-field">
+        <select>
+          <option>+91</option>
+        </select>
+        <input type="text" placeholder="7003026616">
+      </div>
+
+      <button class="btn-primary">Submit Form</button>
+    </div>
+
+  </div>
 </div>
 </div>
 </div>
+
+<script>
+  const quoteModal = document.getElementById("quoteModal");
+  const openQuoteBtn = document.getElementById("openQuoteModal");
+  const closeQuoteBtn = document.getElementById("closeQuoteModal");
+
+  // Open
+  openQuoteBtn.addEventListener("click", () => {
+    quoteModal.style.display = "flex";
+  });
+
+  // Close
+  closeQuoteBtn.addEventListener("click", () => {
+    quoteModal.style.display = "none";
+  });
+
+  // Outside click
+  window.addEventListener("click", (e) => {
+    if (e.target === quoteModal) {
+      quoteModal.style.display = "none";
+    }
+  });
+</script>
 <script>
   const modal = document.getElementById("downloadModal");
   const openBtn = document.getElementById("openModal");
